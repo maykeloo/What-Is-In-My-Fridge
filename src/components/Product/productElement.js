@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 export const ProductBox = styled.div`
     margin-top: 20px;
-    width: 30%;
-    height: 300px;
+    width: 40%;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     transition: 0.3s;
-    padding: 10px;
+    padding: 100px 10px;
     display:flex;
     justify-content: center;
     align-items:center;

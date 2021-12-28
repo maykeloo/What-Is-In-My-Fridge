@@ -44,9 +44,9 @@ const Opener = () => {
         <ContentBox nextStage={nextStage}>
           <TextBox>
             <Title>
-              What is in your{" "}
+              What is in your 
               <span style={{ fontFamily: '"Inspiration", serif' }}>
-                fridge?
+                 fridge?
               </span>
             </Title>
           </TextBox>

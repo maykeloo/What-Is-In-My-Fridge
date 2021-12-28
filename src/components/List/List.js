@@ -21,7 +21,7 @@ import { useContext, createRef } from "react";
 import { Ingredients } from "../../pages/Home";
 import { Route, Routes } from "react-router-dom";
 import Result from "../Result/Result";
-import {Products} from '../Product/Products'
+import { Products } from "../Product/Products";
 
 const List = () => {
   useEffect(() => {
@@ -32,10 +32,10 @@ const List = () => {
 
   return (
     <>
-      <ListBox >
+      <ListBox>
         <Routes>
-        <Route  path='/' element={<FirstPage/>}/>
-        <Route  path='/result' element={<Result/>}/>
+          <Route path="/" element={<FirstPage />} />
+          <Route path="/result" element={<Result />} />
         </Routes>
       </ListBox>
     </>
@@ -49,24 +49,27 @@ const FirstPage = () => {
   const { value, method, show } = context;
 
   const addIngredient = () => {
-
-    if(value.includes(input.current.value)) {
-      console.log('jest');
-    }
-    else if(value.length < 5)  
-    method([...value, input.current.value]);
+    if (value.includes(input.current.value)) {
+      console.log("jest");
+    } else if (value.length < 5) method([...value, input.current.value]);
   };
 
-  const element = value.map((element, index) => <Element key={index}>{element}<DeleteIcon onClick={() => deleteElement(index)}/></Element>)
+  const element = value.map((element, index) => (
+    <Element key={index}>
+      {element}
+      <DeleteIcon onClick={() => deleteElement(index)} />
+    </Element>
+  ));
 
-  const deleteElement = index => {
+  const deleteElement = (index) => {
     const elements = [...value];
     elements.splice(index, 1);
-    method(elements)
-  }
+    method(elements);
+  };
 
   return (
     <>
+    <div style={{position: 'relative', width: '100%', height: '100%'}}></div>
       <Titlebar>
         <Title>
           Choose <span style={{ textDecoration: "underline" }}>five</span>{" "}
@@ -81,14 +84,12 @@ const FirstPage = () => {
           <Input placeholder="Add your indegrent..." ref={input} />
           <Submit onClick={addIngredient}>+</Submit>
         </div>
-        <GoForBox  to={value.length >= 1 ? '/result' : '/'} onClick={show}>
+        <GoForBox to={value.length >= 1 ? "/result" : "/"} onClick={show}>
           <GoForText>Go for recipe</GoForText>
           <GoForArrow id="arrow" />
         </GoForBox>
       </AddBox>
-      <ElementsBar>
-        {element}
-      </ElementsBar>
+      <ElementsBar>{element}</ElementsBar>
     </>
   );
 };

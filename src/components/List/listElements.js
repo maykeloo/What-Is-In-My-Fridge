@@ -7,11 +7,17 @@ export const ListBox = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   background-color: white;
   flex-direction: column;
-  padding-bottom: 30px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ProductsList = styled.div`
@@ -19,18 +25,10 @@ export const ProductsList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const Titlebar = styled.div`
   width: 80%;
-  height: 30vh;
   padding: 20px 0;
   margin-top: 30px;
 `;
@@ -41,11 +39,17 @@ export const Title = styled.h3`
 `;
 
 export const AddBox = styled.div`
-  width: 80%;
-  padding: 100px;
+  width: 100%;
+  padding: 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  background-color: white;
+  border-top: 2px solid black;
+  position: sticky;
+  bottom: 0;
+  right: 0;
+
 `;
 
 export const Input = styled.input`

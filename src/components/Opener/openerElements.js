@@ -49,6 +49,10 @@ export const Title = styled.span`
   font-size: 9em;
   font-family: "Rozha One", serif;
   line-height: 0.85em;
+
+  @media screen and (max-width: 1400px) {
+    font-size: 5em;
+  }
 `;
 
 export const Description = styled.div`
@@ -130,30 +134,30 @@ export const Arrow = styled(AiOutlineArrowRight)`
 `;
 
 export const Socialbar = styled.div`
-    width: 30%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     height: 50px;
     margin-top: 30px;
-
+    padding-bottom: 50px;
 `
 
 export const Facebook = styled(FaFacebookSquare)`
     color: white;
-    font-size: 2em;
+    font-size: 3.5vw;
     padding: 0;
     margin: 0;
 `
 export const Linkedin = styled(FaLinkedin)`
     color: white;
-    font-size: 2em;
+    font-size: 3.5vw;
     padding: 0;
     margin: 0;
 `
 export const Behance = styled(FaBehanceSquare)`
     color: white;
-    font-size: 2em;
+    font-size: 3.5vw;
     padding: 0;
     margin: 0;
 `
