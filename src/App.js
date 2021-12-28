@@ -1,10 +1,16 @@
-import './App.css';
+import React from "react";
+
+import "./App.css";
+import Home from "./pages/Home";
+import { HashRouter as Router} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-        Siema
-    </div>
+    <>
+      <Router>
+        <Home />
+      </Router>
+    </>
   );
 }
 
