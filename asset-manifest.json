@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/whatsinmyfridge/static/css/main.26bbeb86.css",
+    "main.js": "/whatsinmyfridge/static/js/main.ee074f9e.js",
+    "static/media/fridge_1.mp4": "/whatsinmyfridge/static/media/fridge_1.1c485058cabc1a2c0b1b.mp4",
+    "index.html": "/whatsinmyfridge/index.html",
+    "main.26bbeb86.css.map": "/whatsinmyfridge/static/css/main.26bbeb86.css.map",
+    "main.ee074f9e.js.map": "/whatsinmyfridge/static/js/main.ee074f9e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.26bbeb86.css",
+    "static/js/main.ee074f9e.js"
+  ]
+}
