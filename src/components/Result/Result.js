@@ -21,7 +21,7 @@ import { recipe as recipeTest } from "./test";
 
 const Result = () => {
   const context = useContext(Ing);
-  const { recipies, loading, id, setId } = context;
+  const { recipies, loading, setId, setIndexOfRecipe } = context;
 
   return (
     <>
@@ -29,7 +29,7 @@ const Result = () => {
         <ContentTitle>Recipies</ContentTitle>
         {loading
           ? null
-          : recipeTest.map((recipe) => (
+          : recipies.map((recipe, index) => (
               <Box key={recipe.id}>
                 <Image src={recipe.image} />
                 <Descriptionbar>
@@ -62,7 +62,10 @@ const Result = () => {
                 <ShowButtonbar>
                   <ShowButton
                     to={`/result/${recipe.id}`}
-                    onClick={() => setId(recipe.id)}
+                    onClick={() => {
+                      setId(recipe.id)
+                      setIndexOfRecipe(index)
+                    }}
                   >
                     Show recipe
                   </ShowButton>

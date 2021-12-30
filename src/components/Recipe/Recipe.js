@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Ingredients as Ing } from "../../pages/Home";
 import {
   Content,
@@ -17,16 +17,18 @@ import {
   ShopIcon,
   CloseIcon,
 } from "./recipeElements";
-import { recipe, prepare } from "../Result/test";
+import { recipe as recipies, prepare } from "../Result/test";
+import axios from "axios";
 
 
 const Recipe = () => {
 
   const context = useContext(Ing);
-  const { id } = context;
+  const { id, indexOfRecipe, recipies } = context;
 
   const [list, addToList] = useState([]);
   const [listOpened, setListOpened] = useState(false);
+  const [details, setDetails] = useState();
 
   const addItemToShopList = (name) => {
     addToList([...list, name]);
@@ -38,11 +40,19 @@ const Recipe = () => {
     addToList(elements);
   }
 
-  const [details, setDetails] = useState();
+  useEffect(() => (
+    axios(
+      `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?number=2&apiKey=6665dae6371042fd8fac707a0c5a542d`
+    )
+    .then((response) => {
+     setDetails(response.data[0].steps);
+     console.log(response.data[0].steps);
 
-  console.log(id);
-
-    
+    })
+    .catch((error) => {
+      console.error("Error fetching data: ", error);
+    })
+  ),[])
 
   return (
     <>
@@ -54,18 +64,18 @@ const Recipe = () => {
       </ShoppingList>
       <Content>
         <Titlebar>
-          <Image src={recipe[1].image} />
-          <Title>{recipe[1].title}</Title>
+          <Image src={recipies[indexOfRecipe].image} />
+          <Title>{recipies[indexOfRecipe].title}</Title>
         </Titlebar>
         <Instructionsbar>
           <IngredientsBox>
             <Subtitle>Shopping list</Subtitle>
-            {recipe[1].usedIngredients.map((used) => (
+            {recipies[indexOfRecipe].usedIngredients.map((used) => (
               <Ingredient onClick={() => addItemToShopList(used.name)}>
                 {used.name} <PlusIcon />
               </Ingredient>
             ))}
-            {recipe[1].missedIngredients.map((used) => (
+            {recipies[indexOfRecipe].missedIngredients.map((used) => (
               <Ingredient onClick={() => addItemToShopList(used.name)}>
                 {used.name} <PlusIcon />
               </Ingredient>
@@ -73,10 +83,10 @@ const Recipe = () => {
           </IngredientsBox>
           <StepsBox>
             <Subtitle>Step by step</Subtitle>
-            {prepare
-              ? prepare[1].steps.map((step) => (
+            {details
+              ? details.map((step) => (
                   <Steps>
-                    <strong>Step {step.number}</strong>. {step.step}
+                    <strong>Step {step.number}</strong>{step.step}
                   </Steps>
                 ))
               : null}

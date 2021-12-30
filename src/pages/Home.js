@@ -9,6 +9,8 @@ const Home = () => {
   const [recipies, setRecipies] = useState();
   const [loading, setLoading] = useState(false);
   const [id, setId] = useState('');
+  const [indexOfRecipe, setIndexOfRecipe] = useState('');
+
   
   const getApi = () => {
     setLoading(true);
@@ -44,7 +46,9 @@ const Home = () => {
         loading,
         recipies,
         setId,
-        id
+        id,
+        indexOfRecipe,
+        setIndexOfRecipe
       }}
     >
         <Opener />

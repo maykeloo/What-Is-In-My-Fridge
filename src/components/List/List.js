@@ -93,7 +93,7 @@ const FirstPage = () => {
             <Input placeholder="Add your indegrent..." ref={input} />
             <Submit onClick={addIngredient}>+</Submit>
           </div>
-          <GoForBox to={value.length >= 1 ? "/result" : "/"}>
+          <GoForBox to={value.length >= 1 ? "/result" : "/"} onClick={show}>
             <GoForText>Go for recipe</GoForText>
             <GoForArrow id="arrow" />
           </GoForBox>
