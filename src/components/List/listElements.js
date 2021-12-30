@@ -25,6 +25,7 @@ export const ProductsList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-bottom: 50px;
 `;
 
 export const Titlebar = styled.div`
@@ -34,7 +35,7 @@ export const Titlebar = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-size: 3em;
+  font-size: 3vw;
   margin: 0;
 `;
 
@@ -42,6 +43,7 @@ export const AddBox = styled.div`
   width: 100%;
   padding: 30px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background-color: white;
@@ -49,11 +51,18 @@ export const AddBox = styled.div`
   position: sticky;
   bottom: 0;
   right: 0;
-
+  transition: 0.3s;
 `;
 
+export const ButtonsBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  gap: 40px;
+`
+
 export const Input = styled.input`
-  padding: 20px 30px 20px 30px;
+  padding: 10px;
   outline: none;
   border: 2px solid black;
   border-radius: 5px;
@@ -117,7 +126,7 @@ export const GoForBox = styled(Link)`
   line-height: 20px;
   margin: 0;
   outline: none;
-  padding: 20px 30px;
+  padding: 10px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -164,29 +173,32 @@ export const GoForText = styled.span`
 export const GoForArrow = styled(BsArrowRightCircle)`
   color: white;
   transition: 0.7s;
+  font-size: 16px;
 `;
 
 export const ElementsBar = styled.div`
   width: 80%;
   display: flex;
   gap: 15px;
-
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 `;
 
 export const Element = styled.div`
-  padding: 10px;
   background-color: #d9d9d9;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 80px;
+  padding: 10px;
   border-radius: 5px;
   display: flex;
   gap: 10px;
   align-items: center;
+
 `
 
 export const DeleteIcon = styled(GrFormClose)`
   cursor: pointer;
+  font-size: 16px;
 `

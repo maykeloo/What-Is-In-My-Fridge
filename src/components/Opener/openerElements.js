@@ -35,6 +35,15 @@ export const ContentBox = styled.div`
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   transition: 1.4s;
+
+  @media screen and (max-width: 1400px) {
+  height: ${(props) => (props.nextStage ? "100%" : "60%")};
+  }
+
+  
+  @media screen and (max-width: 1100px) {
+  height: ${(props) => (props.nextStage ? "100%" : "80%")};
+  }
 `;
 
 export const TextBox = styled.div`
@@ -69,7 +78,7 @@ export const Description = styled.div`
 
 export const DescriptionText = styled.span`
   color: white;
-  font-size: 2em;
+  font-size: 1.5vw;
   font-weight: lighter;
 `;
 
@@ -145,19 +154,19 @@ export const Socialbar = styled.div`
 
 export const Facebook = styled(FaFacebookSquare)`
     color: white;
-    font-size: 3.5vw;
+    font-size: 2vw;
     padding: 0;
     margin: 0;
 `
 export const Linkedin = styled(FaLinkedin)`
     color: white;
-    font-size: 3.5vw;
+    font-size: 2vw;
     padding: 0;
     margin: 0;
 `
 export const Behance = styled(FaBehanceSquare)`
     color: white;
-    font-size: 3.5vw;
+    font-size: 2vw;
     padding: 0;
     margin: 0;
 `

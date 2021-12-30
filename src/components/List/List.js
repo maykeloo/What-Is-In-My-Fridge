@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AddBox,
+  ButtonsBar,
   DeleteIcon,
   Element,
   ElementsBar,
@@ -21,7 +22,7 @@ import { useContext, createRef } from "react";
 import { Ingredients } from "../../pages/Home";
 import { Route, Routes } from "react-router-dom";
 import Result from "../Result/Result";
-import { Products } from "../Product/Products";
+import Recipe from "../Recipe/Recipe";
 
 const List = () => {
   useEffect(() => {
@@ -36,6 +37,7 @@ const List = () => {
         <Routes>
           <Route path="/" element={<FirstPage />} />
           <Route path="/result" element={<Result />} />
+          <Route path="/result/:recipeId" element={<Recipe/>}/>
         </Routes>
       </ListBox>
     </>
@@ -43,8 +45,10 @@ const List = () => {
 };
 
 const FirstPage = () => {
-  const input = createRef();
 
+  const [clicked, setClicked] = useState({});
+
+  const input = createRef();
   const context = useContext(Ingredients);
   const { value, method, show } = context;
 
@@ -52,6 +56,7 @@ const FirstPage = () => {
     if (value.includes(input.current.value)) {
       console.log("jest");
     } else if (value.length < 5) method([...value, input.current.value]);
+    input.current.value = '';
   };
 
   const element = value.map((element, index) => (
@@ -69,7 +74,9 @@ const FirstPage = () => {
 
   return (
     <>
-    <div style={{position: 'relative', width: '100%', height: '100%'}}></div>
+      <div
+        style={{ position: "relative", width: "100%", height: "100%" }}
+      ></div>
       <Titlebar>
         <Title>
           Choose <span style={{ textDecoration: "underline" }}>five</span>{" "}
@@ -80,16 +87,18 @@ const FirstPage = () => {
         <Product />
       </ProductsList>
       <AddBox>
-        <div style={{ display: "flex", gap: "30px" }}>
-          <Input placeholder="Add your indegrent..." ref={input} />
-          <Submit onClick={addIngredient}>+</Submit>
-        </div>
-        <GoForBox to={value.length >= 1 ? "/result" : "/"} onClick={show}>
-          <GoForText>Go for recipe</GoForText>
-          <GoForArrow id="arrow" />
-        </GoForBox>
+       {value.length >= 1 && <ElementsBar>{element}</ElementsBar>}
+        <ButtonsBar>
+          <div style={{ display: "flex", gap: "30px" }}>
+            <Input placeholder="Add your indegrent..." ref={input} />
+            <Submit onClick={addIngredient}>+</Submit>
+          </div>
+          <GoForBox to={value.length >= 1 ? "/result" : "/"}>
+            <GoForText>Go for recipe</GoForText>
+            <GoForArrow id="arrow" />
+          </GoForBox>
+        </ButtonsBar>
       </AddBox>
-      <ElementsBar>{element}</ElementsBar>
     </>
   );
 };

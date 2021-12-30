@@ -8,6 +8,7 @@ const Home = () => {
   const [ingredients, setIngredients] = useState([]);
   const [recipies, setRecipies] = useState();
   const [loading, setLoading] = useState(false);
+  const [id, setId] = useState('');
   
   const getApi = () => {
     setLoading(true);
@@ -33,14 +34,17 @@ const Home = () => {
       });
     }
   };
+
   return (
     <Ingredients.Provider
       value={{
         value: ingredients,
         method: setIngredients,
         show: getApi,
-        loading: loading,
-        recipies
+        loading,
+        recipies,
+        setId,
+        id
       }}
     >
         <Opener />

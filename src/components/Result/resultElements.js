@@ -5,10 +5,20 @@ export const ResultComponent = styled.div`
     width: 100%;
     display: flex;  
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     overflow-y: scroll;
     justify-content: space-around;
     padding-bottom: 100px;
+`
+
+export const ContentTitle = styled.div`
+    width: 90%;
+    display: flex;
+    padding: 30px 0;
+    align-items: center;
+    font-size: 3vw;
+    font-weight: bold;
+    font-family: "Rozha One", serif;
 `
 
 export const Box = styled.div`
@@ -18,12 +28,12 @@ export const Box = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
     border: 1px solid black;
     justify-content: space-between;
     padding-bottom: 30px;
     border-radius: 5px;
 `
+
 
 export const Image = styled.img`
     width: 100%;
@@ -74,23 +84,23 @@ export const IngredientsBoxUsed = styled.div`
     background-color: #d9d9d9;
     margin-top: 10px;
     font-weight: bold;
-    padding-left: 10px;
+    padding: 5px;
     font-size: 16px;
 `
 
 export const IngredientsBoxMissed = styled.div`
     background-color: #d9d9d9;
-    padding-left: 10px;
+    padding: 5px;
     margin-top: 10px;
     font-weight: bold;
     font-size: 16px;
-
 `
 
 export const ShowButtonbar = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 `
 
 export const ShowButton = styled(Link)`

@@ -22,7 +22,6 @@ const Product = () => {
     }
     else if(value.length < 5)
     method([...value, name]);
-    
   };
 
   console.log(value);
