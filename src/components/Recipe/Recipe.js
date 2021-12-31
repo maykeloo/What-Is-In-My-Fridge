@@ -16,9 +16,13 @@ import {
   ShoppingListButton,
   ShopIcon,
   CloseIcon,
+  Copybar,
+  CopyButton,
+  LeftSide,
 } from "./recipeElements";
-import { recipe as recipies, prepare } from "../Result/test";
 import axios from "axios";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import Similar from "./Similar";
 
 
 const Recipe = () => {
@@ -29,6 +33,7 @@ const Recipe = () => {
   const [list, addToList] = useState([]);
   const [listOpened, setListOpened] = useState(false);
   const [details, setDetails] = useState();
+  const [nutritionWidget, setNutritionWidget] = useState([]);
 
   const addItemToShopList = (name) => {
     addToList([...list, name]);
@@ -52,7 +57,7 @@ const Recipe = () => {
     .catch((error) => {
       console.error("Error fetching data: ", error);
     })
-  ),[])
+  ),[id])
 
   return (
     <>
@@ -60,7 +65,12 @@ const Recipe = () => {
        {listOpened ? <CloseIcon/> : <ShopIcon />}
       </ShoppingListButton>
       <ShoppingList opened={listOpened}>
-      {list.map((el, index) => <Ingredient style={{width: '90%', fontWeight: 'bold'}}>{el} <CloseIcon style={{color: 'black'}} onClick={() => deleteItem(index)}/></Ingredient>)}
+      {list.length < 1 ? "List is empty" : list.map((el, index) => <Ingredient style={{width: '90%', fontWeight: 'bold'}}>{el} <CloseIcon style={{color: 'black'}} onClick={() => deleteItem(index)}/></Ingredient>)} 
+        <Copybar>
+          <CopyToClipboard text={list}>
+            <CopyButton>Copy list</CopyButton>
+          </CopyToClipboard>
+        </Copybar>
       </ShoppingList>
       <Content>
         <Titlebar>
@@ -68,6 +78,7 @@ const Recipe = () => {
           <Title>{recipies[indexOfRecipe].title}</Title>
         </Titlebar>
         <Instructionsbar>
+          <LeftSide>
           <IngredientsBox>
             <Subtitle>Shopping list</Subtitle>
             {recipies[indexOfRecipe].usedIngredients.map((used) => (
@@ -81,12 +92,14 @@ const Recipe = () => {
               </Ingredient>
             ))}
           </IngredientsBox>
+          <Similar/>
+          </LeftSide>
           <StepsBox>
             <Subtitle>Step by step</Subtitle>
             {details
               ? details.map((step) => (
                   <Steps>
-                    <strong>Step {step.number}</strong>{step.step}
+                    <strong style={{textDecoration: 'underline'}}>Step {step.number}</strong>{step.step}
                   </Steps>
                 ))
               : null}

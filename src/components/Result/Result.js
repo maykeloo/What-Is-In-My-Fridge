@@ -15,9 +15,13 @@ import {
   ShowButtonbar,
   ShowButton,
   ContentTitle,
+  Boxes,
+  Top,
+  Bottom,
 } from "./resultElements";
 import { Ingredients as Ing } from "../../pages/Home";
 import { recipe as recipeTest } from "./test";
+import Loading from "../Loading/Loading";
 
 const Result = () => {
   const context = useContext(Ing);
@@ -27,51 +31,59 @@ const Result = () => {
     <>
       <ResultComponent>
         <ContentTitle>Recipies</ContentTitle>
-        {loading
-          ? null
-          : recipies.map((recipe, index) => (
+        <Boxes>
+          {loading ? (
+            <Loading />
+          ) : (
+            recipies.map((recipe, index) => (
               <Box key={recipe.id}>
-                <Image src={recipe.image} />
-                <Descriptionbar>
+                <Top>
+                  <Image src={recipe.image} />
                   <Titlebar>
                     <Title>{recipe.title}</Title>
                   </Titlebar>
-                  <Ingredients>
-                    <Used>
-                      <Text>
-                        Used ingredients:{" "}
+                </Top>
+                <Bottom>
+                  <Descriptionbar>
+                    <Ingredients>
+                      <Used>
+                        <Text>
+                          Used ingredients:
+                        </Text>
                         {recipe.usedIngredients.map((used) => (
-                          <IngredientsBoxUsed key={used.id}>
-                            {used.name}
-                          </IngredientsBoxUsed>
-                        ))}
-                      </Text>
-                    </Used>
-                    <Needed>
-                      <Text>
-                        Needed ingredients:{" "}
+                            <IngredientsBoxUsed key={used.id}>
+                              {used.name}
+                            </IngredientsBoxUsed>
+                          ))}
+                      </Used>
+                      <Needed>
+                        <Text>
+                          Needed ingredients:
+                        </Text>
                         {recipe.missedIngredients.map((miss) => (
-                          <IngredientsBoxMissed key={miss.id}>
-                            {miss.name}
-                          </IngredientsBoxMissed>
-                        ))}{" "}
-                      </Text>
-                    </Needed>
-                  </Ingredients>
-                </Descriptionbar>
-                <ShowButtonbar>
-                  <ShowButton
-                    to={`/result/${recipe.id}`}
-                    onClick={() => {
-                      setId(recipe.id)
-                      setIndexOfRecipe(index)
-                    }}
-                  >
-                    Show recipe
-                  </ShowButton>
-                </ShowButtonbar>
+                            <IngredientsBoxMissed key={miss.id}>
+                              {miss.name}
+                            </IngredientsBoxMissed>
+                          ))}{" "}
+                      </Needed>
+                    </Ingredients>
+                  </Descriptionbar>
+                  <ShowButtonbar>
+                    <ShowButton
+                      to={`/result/${recipe.id}`}
+                      onClick={() => {
+                        setId(recipe.id);
+                        setIndexOfRecipe(index);
+                      }}
+                    >
+                      <span style={{fontStyle: 'italic', fontWeight: '200'}}>Show</span> <span style={{fontFamily: '"Rozha One", serif'}}>recipe</span> 
+                    </ShowButton>
+                  </ShowButtonbar>
+                </Bottom>
               </Box>
-            ))}
+            ))
+          )}
+        </Boxes>
       </ResultComponent>
     </>
   );

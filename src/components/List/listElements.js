@@ -15,8 +15,13 @@ export const ListBox = styled.div`
   scrollbar-width: none;
   position: relative;
 
+
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100vw;
   }
 `;
 
@@ -24,8 +29,12 @@ export const ProductsList = styled.div`
   width: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-bottom: 50px;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 export const Titlebar = styled.div`
@@ -37,6 +46,10 @@ export const Titlebar = styled.div`
 export const Title = styled.h3`
   font-size: 3vw;
   margin: 0;
+
+  @media screen and (max-width: 600px) {
+   font-size: 7vw;
+  }
 `;
 
 export const AddBox = styled.div`
@@ -49,9 +62,11 @@ export const AddBox = styled.div`
   background-color: white;
   border-top: 2px solid black;
   position: sticky;
+  background-color: black;
   bottom: 0;
   right: 0;
   transition: 0.3s;
+  
 `;
 
 export const ButtonsBar = styled.div`
@@ -59,21 +74,42 @@ export const ButtonsBar = styled.div`
   justify-content: space-between;
   width: 80%;
   gap: 40px;
-`
 
+  @media screen and (max-width: 600px) {
+    width: 90%;
+    gap: 10px;
+  }
+`
+export const LeftButton = styled.div`
+  gap: 30px;
+  display: flex;
+
+  @media screen and (max-width: 600px) {
+    gap: 5px;
+  }
+`
 export const Input = styled.input`
   padding: 10px;
   outline: none;
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 0;
+
+  &::placeholder {
+    color: black;
+    font-weight: bold;
+    font-family: "Rozha One", serif;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 3px;
+    width: 50%;
+  }
 `;
 
 export const Submit = styled.button`
   background-color: #ffffff;
-  border: 2px solid grey;
-  border-radius: 8px;
+  border: 0;
   box-sizing: border-box;
-  color: grey;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-size: 16px;
@@ -114,7 +150,6 @@ export const Submit = styled.button`
 export const GoForBox = styled(Link)`
   background-color: green;
   border: 2px solid green;
-  border-radius: 8px;
   box-sizing: border-box;
   color: white;
   cursor: pointer;
@@ -173,7 +208,11 @@ export const GoForText = styled.span`
 export const GoForArrow = styled(BsArrowRightCircle)`
   color: white;
   transition: 0.7s;
-  font-size: 16px;
+  font-size: 1vw;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 1.7em;
+  }
 `;
 
 export const ElementsBar = styled.div`

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ProductBox = styled.div`
     margin-top: 20px;
     width: 40%;
-    border-radius: 5px;
+    border-radius: 230px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -16,6 +16,10 @@ export const ProductBox = styled.div`
     &:hover {
         transform: scale(0.97);
     }
+
+    @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `
 
 export const ProductBg = styled.img`

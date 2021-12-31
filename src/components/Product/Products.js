@@ -53,4 +53,10 @@ export const Products = [
     time: 1000,
     active: false
   },
+  {
+    name: "Chicken",
+    img: "https://img.myloview.pl/fototapety/fresh-raw-chicken-meat-and-chicken-parts-black-background-top-view-700-235704449.jpg",
+    time: 1000,
+    active: false
+  },
 ];

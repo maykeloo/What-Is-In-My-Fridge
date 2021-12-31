@@ -68,20 +68,37 @@ export const Title = styled.span`
   font-size: 3vw;
   font-weight: bold;
   font-family: "Rozha One", serif;
+
+  @media screen and (max-width: 800px) {
+    font-size: 2em;
+  }
 `;
 
 export const Instructionsbar = styled.div`
   width: 80%;
   display: flex;
   margin-top: 40px;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const IngredientsBox = styled.div`
-  width: 50%;
+  width: 100%;
+  
+    @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const StepsBox = styled.div`
   width: 50%;
+  padding-bottom: 100px;
+  
+    @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const Subtitle = styled.h2`
@@ -98,6 +115,7 @@ export const Steps = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 30px;
 `;
 
 export const Ingredient = styled.p`
@@ -106,6 +124,10 @@ export const Ingredient = styled.p`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const PlusIcon = styled(BsPlusSquare)`
@@ -133,6 +155,8 @@ export const ShoppingListButton = styled.div`
   box-shadow: 0px 0px 21px 0px rgba(169, 169, 169, 1);
   animation-name: ${slideIn};
   animation-duration: 2s;
+  z-index: 10;
+
 
   &:hover {
     > * {
@@ -140,6 +164,12 @@ export const ShoppingListButton = styled.div`
         animation-duration: 0.5s;
         animation-iteration-count: infinite;
     }
+  }
+
+  @media screen and (max-width: 600px) {
+    position: fixed;
+    top: 25px;
+    rigth: 25px;
   }
 `;
 
@@ -149,7 +179,6 @@ export const ShopIcon = styled(RiShoppingBagLine)`
 
 export const ShoppingList = styled.div`
   width: 10vw;
-  height: 40vh;
   z-index: 100;
   background-color: white;
   border: 1px solid black;
@@ -159,9 +188,55 @@ export const ShoppingList = styled.div`
   right: 50px;
   box-shadow: 0px 0px 21px 0px rgba(169, 169, 169, 1);
   display: ${({ opened }) => (opened ? "block" : "none")};
+
+  @media screen and (max-width: 600px) {
+    position: fixed;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    z-index: 3;
+    padding: 0;
+    padding-left: 10px;
+  }
 `;
 
 export const CloseIcon = styled(MdClose)`
   color: white;
   cursor: pointer;
 `;
+
+export const Copybar = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px 0;
+`
+
+export const CopyButton  = styled.button`
+  width: 100px;
+  background-color: #2a9d8f;
+  border: 0;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #2a9d8f;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: white;
+    color: #2a9d8f;
+  }
+`
+
+export const LeftSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 50px;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+`

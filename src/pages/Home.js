@@ -23,7 +23,7 @@ const Home = () => {
       +${ingredients[2]},
       +${ingredients[3]},
       +${ingredients[4]}
-      &number=2&apiKey=6665dae6371042fd8fac707a0c5a542d`
+      &number=6&apiKey=6665dae6371042fd8fac707a0c5a542d`
     )
       .then((response) => {
         setRecipies(response.data);

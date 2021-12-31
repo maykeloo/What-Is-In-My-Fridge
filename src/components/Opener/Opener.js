@@ -10,6 +10,7 @@ import {
   Description,
   DescriptionText,
   Facebook,
+  LeftSide,
   Linkedin,
   Socialbar,
   TextBox,
@@ -42,6 +43,7 @@ const Opener = () => {
       <Content>
         <Background src={bg} playsInline autoPlay muted loop={true} />
         <ContentBox nextStage={nextStage}>
+          <LeftSide>
           <TextBox>
             <Title>
               What is in your 
@@ -61,6 +63,7 @@ const Opener = () => {
               <Behance />
             </Socialbar>
           </Description>
+          </LeftSide>
           <ButtonBox>
             {onDelay ? (
               <List onDelay={nextStage}/>

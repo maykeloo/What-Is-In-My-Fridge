@@ -5,7 +5,6 @@ import { FaFacebookSquare, FaLinkedin, FaBehanceSquare} from 'react-icons/fa'
 export const Content = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: #84a59d;
   padding: 0;
   margin: 0;
 `;
@@ -29,11 +28,7 @@ export const ContentBox = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  display: flex;
   transition: 1.4s;
 
   @media screen and (max-width: 1400px) {
@@ -50,17 +45,24 @@ export const TextBox = styled.div`
   width: 100%;
   margin-top: 100px;
   margin-left: 100px;
-  grid-area: 1 / 1 / 3 / 2;
+  display: flex;
+  flex-direction: column;
 `;
+
+export const LeftSide = styled.div`
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+`
 
 export const Title = styled.span`
   color: white;
-  font-size: 9em;
+  font-size: 7vw;
   font-family: "Rozha One", serif;
   line-height: 0.85em;
 
-  @media screen and (max-width: 1400px) {
-    font-size: 5em;
+  @media screen and (max-width: 1200px) {
+    font-size: 5vw;
   }
 `;
 
@@ -68,7 +70,6 @@ export const Description = styled.div`
   width: 60%;
   margin-top: 100px;
   margin-left: 100px;
-  grid-area: 3 / 1 / 5 / 2;
   transition: 1s;
   display: flex;
   flex-direction: column;
@@ -83,7 +84,6 @@ export const DescriptionText = styled.span`
 `;
 
 export const ButtonBox = styled.div`
-  grid-area: 1 / 2 / 5 / 3;
   display: flex;
   justify-content: center;
   align-items: center;

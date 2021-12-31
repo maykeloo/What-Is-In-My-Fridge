@@ -9,6 +9,7 @@ import {
   GoForBox,
   GoForText,
   Input,
+  LeftButton,
   ListBox,
   ProductsList,
   Submit,
@@ -55,7 +56,7 @@ const FirstPage = () => {
   const addIngredient = () => {
     if (value.includes(input.current.value)) {
       console.log("jest");
-    } else if (value.length < 5) method([...value, input.current.value]);
+    } else if (value.length < 5 && input.current.value) method([...value, input.current.value]);
     input.current.value = '';
   };
 
@@ -79,7 +80,7 @@ const FirstPage = () => {
       ></div>
       <Titlebar>
         <Title>
-          Choose <span style={{ textDecoration: "underline" }}>five</span>{" "}
+          Choose max <span style={{ textDecoration: "underline" }}>five</span>{" "}
           indegrents that you can use.
         </Title>
       </Titlebar>
@@ -89,10 +90,10 @@ const FirstPage = () => {
       <AddBox>
        {value.length >= 1 && <ElementsBar>{element}</ElementsBar>}
         <ButtonsBar>
-          <div style={{ display: "flex", gap: "30px" }}>
+          <LeftButton>
             <Input placeholder="Add your indegrent..." ref={input} />
             <Submit onClick={addIngredient}>+</Submit>
-          </div>
+          </LeftButton>
           <GoForBox to={value.length >= 1 ? "/result" : "/"} onClick={show}>
             <GoForText>Go for recipe</GoForText>
             <GoForArrow id="arrow" />
