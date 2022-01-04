@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/whatsinmyfridge/static/css/main.b2eb50d5.css",
-    "main.js": "/whatsinmyfridge/static/js/main.094cf3b0.js",
+    "main.js": "/whatsinmyfridge/static/js/main.cfa45105.js",
     "static/media/fridge_1.mp4": "/whatsinmyfridge/static/media/fridge_1.1c485058cabc1a2c0b1b.mp4",
     "index.html": "/whatsinmyfridge/index.html",
     "static/media/roll.svg": "/whatsinmyfridge/static/media/roll.0ccc87736eb4a6e2ad3335cb0c45d2b5.svg",
     "static/media/line.svg": "/whatsinmyfridge/static/media/line.478714be0ba4be4c613e9a805080be60.svg",
     "main.b2eb50d5.css.map": "/whatsinmyfridge/static/css/main.b2eb50d5.css.map",
-    "main.094cf3b0.js.map": "/whatsinmyfridge/static/js/main.094cf3b0.js.map"
+    "main.cfa45105.js.map": "/whatsinmyfridge/static/js/main.cfa45105.js.map"
   },
   "entrypoints": [
     "static/css/main.b2eb50d5.css",
-    "static/js/main.094cf3b0.js"
+    "static/js/main.cfa45105.js"
   ]
 }
